@@ -7,9 +7,9 @@ npm install
 
 ### Compiles and hot-reloads for development
 
-vue-sli-service serve
+vue-cli-service serve
 ```
-vue-sli-service serve
+vue-cli-service serve
 
 
 not
