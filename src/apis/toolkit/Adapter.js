@@ -74,33 +74,4 @@ export default class Adapter {
         return data
     }
 
-
-    //
-    // async mutateAsync(_data) {
-    //     const {
-    //         variables,
-    //         mutation,
-    //         operationDescription
-    //     } = _data
-    //     let {additionalInfo = defaultAdditionalInfo} = _data
-    //
-    //     additionalInfo = Object.assign(defaultAdditionalInfo, additionalInfo)
-    //
-    //     const clientApollo = this.#pApollo.defaultClient
-    //
-    //     const req = clientApollo.mutate
-    //
-    //     const payload = {
-    //         mutation,
-    //         variables,
-    //         fetchPolicy: additionalInfo.fetchPolicy ?? defaultMutationFetchPolicy,
-    //     }
-    //
-    //     return this.requestAsync({
-    //         req,
-    //         payload,
-    //         operationDescription,
-    //         additionalInfo,
-    //     })
-    // }
 }
