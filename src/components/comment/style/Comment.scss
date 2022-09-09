@@ -1,0 +1,34 @@
+.container__comment {
+  margin: 1rem 0 0 2rem;
+
+  .show__comment {
+    .user__info {
+      display: flex;
+
+      .user__avatar {
+
+      }
+
+      .block__email {
+        margin-left: 0.5rem;
+        align-self: center;
+      }
+    }
+
+    .comment__info {
+
+      .comment__title {
+
+        span {
+          font-size: 15px;
+          font-weight: bold;
+        }
+      }
+
+      .comment__body {
+        margin-left: 0.3rem;
+          font-size: 12px;
+      }
+    }
+  }
+}

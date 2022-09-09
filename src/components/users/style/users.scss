@@ -1,0 +1,43 @@
+.user__data {
+  display: flex;
+  width: 35%;
+  min-width: 400px;
+  border: 0.1rem solid aliceblue;
+  border-radius: 1.5rem;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  margin-left: 1rem;
+
+  .user__img {
+    .avatar {
+      width: 4rem;
+      height: 4rem;
+    }
+  }
+
+  .user__info {
+    width: 40%;
+    align-self: center;
+    margin: 0.5rem;
+    color: black;
+    text-decoration: none;
+  }
+
+  .user__action {
+    width: 40%;
+    align-self: center;
+
+    & button {
+      background: var(--back_60_Gray);
+      margin: 0.5rem;
+      border-radius: 0.6rem;
+
+      &
+      span {
+        color: var(--text_100_White);
+      }
+
+    }
+
+  }
+}

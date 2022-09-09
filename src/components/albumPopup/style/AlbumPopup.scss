@@ -1,0 +1,52 @@
+.popup {
+  top: 0;
+  z-index: 999;
+  position: fixed;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  overflow-y: auto;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100vw;
+  height: auto;
+  margin: auto;
+  flex-shrink: 0;
+  flex-grow: 0;
+
+  .b-popup-content {
+    overflow: hidden;
+    border-radius: 2vw;
+    justify-content: center;
+    align-self: center;
+    box-shadow: 0px 0px 10px #000;
+
+    .white {
+      border-radius: 2vw;
+
+      width: 80vw;
+      height: 50vh;
+      background: #f2f2f2;
+      .close__popUp {
+        display: flex;
+        align-self: end;
+
+        overflow: auto;
+        margin: auto;
+        top: 0; left:auto; bottom: 0; right: 0;
+        text-align: right;
+        z-index: 999;
+        .close{
+          font-size: 2vw;
+        }
+        .close:hover {
+          cursor: pointer;
+        }
+      }
+      .slider {
+
+      }
+    }
+  }
+}

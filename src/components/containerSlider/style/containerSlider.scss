@@ -1,0 +1,11 @@
+.main__container {
+  width: 90%;
+  .view__album {
+    width: 90vw;
+    min-width: 15rem;
+    max-width: 60rem;
+    border: solid 0.1rem black;
+    border-radius: 1rem;
+    margin: 1rem;
+  }
+}

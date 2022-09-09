@@ -1,0 +1,37 @@
+.container__posts {
+
+  .show__post {
+    border: 0.1rem solid black;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+
+    .post__info {
+      display: flex;
+      .user__avatar {
+        margin: 0.3rem 0.5rem 0 0.3rem;
+      }
+
+      .info__post {
+
+        .title__post {
+          margin-bottom: 0.5rem;
+
+          .text__title {
+            font-weight: bold;
+          }
+        }
+
+        .body__post {
+          .text__body {
+
+          }
+        }
+      }
+    }
+    hr{
+      margin-top: 1rem;
+      justify-content: center;
+    }
+  }
+}

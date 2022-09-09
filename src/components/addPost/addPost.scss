@@ -1,0 +1,57 @@
+.add {
+  .title__container {
+    margin-bottom: 1rem;
+
+    .title {
+      font-size: 20px;
+
+    }
+  }
+
+  .data__post__container {
+    border: solid black 0.003rem;
+
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    width: fit-content;
+
+    .title__post {
+      .input__title {
+        width: 40vw;
+      }
+    }
+
+    .block__body {
+      display: flex;
+      margin-top: 1rem;
+
+      .title__body {
+        title {
+          width: 20vw;
+          height: 3vh;
+        }
+      }
+
+      .body__post {
+        margin: 0 1rem 0 2rem;
+        padding: 0.3rem;
+
+        .textarea__body {
+          border-radius: 0.5rem;
+          width: 40vw;
+          min-height: 5.5rem;
+          height: 100%;
+          resize: none;
+          padding: 0.3rem;
+        }
+      }
+    }
+
+    .post__add {
+      display: flex;
+      justify-content: end;
+      margin-top: 0.5rem;
+    }
+  }
+}

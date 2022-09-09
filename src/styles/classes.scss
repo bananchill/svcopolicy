@@ -1,0 +1,23 @@
+.avatar {
+  width: 6vh;
+  height: 6vh;
+}
+.avatar__mini {
+  width: 2vh;
+  height: 2vh;
+}
+.button__choose{
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text_100_White);
+  padding: 0.3rem 0.7rem 0.5rem 0.7rem;
+  border: none;
+  background: var(--back_60_Red);
+  width: 7vw;
+  margin: 0.5rem;
+  height: 3.5vh;
+  border-radius: 0.3rem;
+  font-size: 1.5vh;
+  font-width: 400;
+}
