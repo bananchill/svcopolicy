@@ -25,7 +25,7 @@ class PhotoApiImpl {
         this.#p_Adapter = new Adapter(log)
     }
 
-    async getPhotoAsync(_album) {
+    async getInfoAsync(_album) {
         let album = {};
         const photo = await this.#p_Adapter.requestJsonAsync({
             method: 'GET',

@@ -39,7 +39,7 @@ export default {
     ,
     async getUsersAsync() {
       try {
-        const users = await this.userApi.getUsersJson()
+        const users = await this.userApi.getAllAsync()
         this.users = users
       } catch (e) {
         console.log(`get users failed ${e.message}`)

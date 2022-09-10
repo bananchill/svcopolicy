@@ -72,7 +72,7 @@ export default {
           body: this.body,
           userId: this.$route.params['id']
         }
-        const res = await this.postApi.createPostUserAsync(body)
+        const res = await this.postApi.createPostAsync(body)
         this.$emit('updateData')
         console.log(res)
         this.title = '';

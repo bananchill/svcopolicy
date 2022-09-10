@@ -73,14 +73,16 @@ const tabs = {
 }
 export default {
   name: "SoloUser",
-  props: {},
   components: {
     ContainerAlbum,
     Post
   },
   data() {
     return {
-      user: null,
+      user: {
+        type: Array,
+        default: null
+      },
       tabs,
       activeTab: tabs.Album,
     }
@@ -104,7 +106,7 @@ export default {
   methods: {
     async getUser() {
       try {
-        const user = await this.userApi.getUserJson(this.$route.params['id'])
+        const user = await this.userApi.getInfoAsync(this.$route.params['id'])
         this.user = user
       } catch (e) {
         console.log(`get users failed ${e.message}`)

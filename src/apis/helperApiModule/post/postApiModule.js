@@ -26,7 +26,7 @@ class PostApiImpl {
         this.#p_Adapter = new Adapter(log)
     }
 
-    async getPostsJson(_userId) {
+    async getInfoAsync(_userId) {
         const userId = parseInt(_userId, 10)
         let posts = await this.#p_Adapter.requestJsonAsync({
             method: 'GET',
@@ -38,8 +38,7 @@ class PostApiImpl {
         return posts
     }
 
-    async createPostUserAsync( body) {
-
+    async createPostAsync( body) {
         let res = await this.#p_Adapter.requestIgnoreResponseDataAsync({
             method: 'POST',
             query: this.name ,

@@ -25,7 +25,7 @@ class CommentApiImpl {
         this.#p_Adapter = new Adapter(log)
     }
 
-    async getCommentsJson(_posts) {
+    async getInfoAsync(_posts) {
         const comments = await this.#p_Adapter.requestJsonAsync({
             method: 'GET',
             query: this.name ,

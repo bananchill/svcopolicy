@@ -1,12 +1,12 @@
 <template>
-  <div class="main__container " style="">
+  <div class="main__container " style="" v-if="userAlbum">
     <div class="view__album"
          v-for="(album, index) in userAlbum"
          :key="index"
     >
       <Slider
           class="slider"
-          :photoInAlbum="album.photo"
+          :photoInAlbum="album?.photo"
           :numberSlider="index"
           :idAlbum="openPopup"
       />
@@ -26,18 +26,18 @@ import Slider from "@/components/slider/sliderForMiniAlbum/Slider";
 export default {
   name: "ContainerSliders",
   components: {
-
     Slider
   },
   data() {
     return {
-      userAlbum: [],
+      userAlbum: {
+        type: Array,
+        default: null,
+      },
       popUpIsOpen: false,
     }
   },
-  watch: {
-
-  },
+  watch: {},
   async created() {
     await this.refreshAsync()
   },
@@ -59,24 +59,23 @@ export default {
     },
     async getAlbumUsers() {
       try {
-        const album = await this.albumApi.getUserAlbumAsync(this.$route.params['id'])
+        const album = await this.albumApi.getAlbumByUserAsync(this.$route.params['id'])
         this.userAlbum = album
-        console.log(album, 222)
       } catch (e) {
         console.log(`get photos failed ${e.message}`)
       }
     },
     async getPhotoAlbums() {
       try {
-        const albumWithPhoto = await this.photoApi.getPhotoAsync(this.userAlbum)
+        const albumWithPhoto = await this.photoApi.getInfoAsync(this.userAlbum)
         this.userAlbum = albumWithPhoto
       } catch (e) {
         console.log(`get photos failed ${e.message}`)
       }
     },
     openPopup(_idAlbum) {
-      console.log(_idAlbum, 222)
-      this.popupIsOpen = true
+      console.log(_idAlbum, 0)
+      this.popUpIsOpen = true
     }
   }
 }

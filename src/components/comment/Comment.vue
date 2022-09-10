@@ -28,14 +28,11 @@
 export default {
   name: "CommentComponent",
   props: {
-    comment: []
-  }, data() {
-    return {}
-  },
-  created() {
-    console.log(this.comment, 111)
-  },
-  methods: {}
+    comment: {
+      type: Array,
+      default: null,
+    },
+  }
 }
 </script>
 

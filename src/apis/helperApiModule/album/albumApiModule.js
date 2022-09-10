@@ -25,7 +25,7 @@ class AlbumApiImpl {
         this.#p_Adapter = new Adapter(log)
     }
 
-    async getUserAlbumAsync(_userId) {
+    async getAlbumByUserAsync(_userId) {
         const userId = parseInt(_userId, 10)
         let album = await this.#p_Adapter.requestJsonAsync({
             method: 'GET',

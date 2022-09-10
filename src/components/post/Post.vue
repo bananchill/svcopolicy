@@ -15,18 +15,18 @@
         <div class="info__post">
           <div class="title__post">
         <span class="text__title">
-          {{ post.title }}
+          {{ post?.title }}
         </span>
           </div>
           <div class="body__post">
         <span class="text__body">
-         {{ post.body }}
+         {{ post?.body }}
           </span>
           </div>
         </div>
       </div>
       <hr/>
-      <Comment
+      <Comment v-if="post?.comment"
           :comment="post?.comment[0]"
           @updateData="refreshAsync"
       />
@@ -47,7 +47,10 @@ export default {
   data() {
     return {
       isVisibleAnswerButton: false,
-      userPosts: []
+      userPosts: {
+        type: Array,
+        default: null,
+      }
     }
   },
   computed: {
@@ -69,7 +72,7 @@ export default {
     },
     async getUserPosts() {
       try {
-        const res = await this.postApi.getPostsJson(this.$route.params['id'])
+        const res = await this.postApi.getInfoAsync(this.$route.params['id'])
         this.userPosts = res
         console.log(res)
       } catch (e) {
@@ -81,8 +84,9 @@ export default {
     },
     async getUsersComment() {
       try {
-        const res = await this.commentApi.getCommentsJson(this.userPosts)
+        const res = await this.commentApi.getInfoAsync(this.userPosts)
         this.userPosts = res
+        console.log(res, 4)
       } catch (e) {
         console.log(`failed get comments ${e.message}`)
       }

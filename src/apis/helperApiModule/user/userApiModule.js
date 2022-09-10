@@ -24,7 +24,7 @@ class UsersApiImpl {
         this.#p_Adapter = new Adapter(log)
     }
 
-    async getUsersJson() {
+    async getAllAsync() {
         return await this.#p_Adapter.requestJsonAsync({
             method: 'GET',
             query: this.name,
@@ -32,7 +32,7 @@ class UsersApiImpl {
         });
     }
 
-    async getUserJson(_userId) {
+    async getInfoAsync(_userId) {
         const userId = parseInt(_userId, 10)
         return await this.#p_Adapter.requestJsonAsync({
             method: 'GET',

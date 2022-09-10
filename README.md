@@ -1,4 +1,4 @@
-# svcpolicytests
+# svcopolicytests
 
 ## Project setup
 ```
