@@ -3,7 +3,7 @@
     <div class="user__active__add">
       <button
           class="button__choose"
-          @click="containerShow = !containerShow"
+          @click="toggleContainer(!containerShow)"
       > Добавить
       </button>
     </div>
@@ -37,6 +37,12 @@
             @click="savePostAsync"
         >
           Сохранить
+        </button>
+        <button
+            class="close__save button__choose"
+            @click="toggleContainer(!containerShow)"
+        >
+          Отмена
         </button>
       </div>
     </div>
@@ -72,17 +78,17 @@ export default {
           body: this.body,
           userId: this.$route.params['id']
         }
-        const res = await this.postApi.createPostAsync(body)
+        await this.postApi.createPostAsync(body)
         this.$emit('updateData')
-        console.log(res)
         this.title = '';
         this.body = '';
 
       } catch (e) {
         console.log(`error creating a comment, ${e.message}`)
-
       }
-
+    },
+    toggleContainer(_containerShow){
+      this.containerShow = _containerShow
     }
   }
 }

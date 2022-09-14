@@ -6,14 +6,12 @@
     >
       <Slider
           class="slider"
-          :photoInAlbum="album?.photo"
+          :photoInAlbum="album?.photos"
           :numberSlider="index"
           :idAlbum="openPopup"
       />
     </div>
-
   </div>
-
 
 </template>
 
@@ -31,8 +29,9 @@ export default {
   data() {
     return {
       userAlbum: {
-        type: Array,
-        default: null,
+        type: {},
+        default: () => {
+        },
       },
       popUpIsOpen: false,
     }
@@ -60,6 +59,7 @@ export default {
     async getAlbumUsers() {
       try {
         const album = await this.albumApi.getAlbumByUserAsync(this.$route.params['id'])
+        console.log(album, 123)
         this.userAlbum = album
       } catch (e) {
         console.log(`get photos failed ${e.message}`)
@@ -69,6 +69,7 @@ export default {
       try {
         const albumWithPhoto = await this.photoApi.getInfoAsync(this.userAlbum)
         this.userAlbum = albumWithPhoto
+        console.log(this.userAlbum, 234)
       } catch (e) {
         console.log(`get photos failed ${e.message}`)
       }

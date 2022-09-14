@@ -3,7 +3,7 @@
     <div class="slidershow-container">
       <div
           v-for="(photo, index) in photoInAlbum.slice(0,5)"
-          :key="index"
+          :key="photo.id"
           class="mySlides fade"
           :class=" ['numberSlider__'+numberSlider, index+1=== 1 ? ' active__slider' : '']"
       >
@@ -56,7 +56,7 @@ export default {
   },
   props: {
     photoInAlbum: {
-      type: Array,
+      type: [],
       default: null,
     },
     numberSlider: Number,
@@ -104,5 +104,4 @@ export default {
 
 <style lang="scss" scoped>
 @import "style/slider";
-
 </style>

@@ -30,18 +30,11 @@
         </div>
       </div>
     </div>
-    <div class="user__actives">
-      <div class="menu__name "
-           v-for="(tab) in tabs"
-           :key="tab.id"
-           @click="setActiveTab(tab)"
-           :class="{active: tab === activeTab}"
-      >
-        <span>
-          {{ tab.title }}
-        </span>
-      </div>
-    </div>
+    <Tabs :tabs="tabs"
+          :activeTab="activeTab"
+          @activeTab="setActiveTab"
+    />
+
     <div class="container__user__select">
       <ContainerAlbum
           class="container__album"
@@ -59,6 +52,7 @@
 <script>
 import Post from "@/components/post/Post";
 import ContainerAlbum from "@/components/containerSlider/ContainerSlider";
+import Tabs from "@/components/tabs/Tabs"
 
 const tabs = {
   Posts: {
@@ -69,13 +63,13 @@ const tabs = {
     name: 'albums',
     title: 'Альбомы',
   },
-
 }
 export default {
   name: "SoloUser",
   components: {
     ContainerAlbum,
-    Post
+    Post,
+    Tabs
   },
   data() {
     return {
@@ -89,13 +83,10 @@ export default {
   },
   async created() {
     let queryPage = String.prototype.toLowerCase.apply(this.$route.query['page'])
-    if (queryPage === tabs.Posts.name)
-      this.activeTab = tabs.Posts
-    if (queryPage === tabs.Album.name)
-      this.activeTab = tabs.Album
-    else {
-      this.setActiveTab(this.activeTab)
-    }
+    this.setActiveTab(
+        tabs.Posts.name === queryPage
+            ? tabs.Posts : this.activeTab
+    )
     await this.getUser()
   },
   computed: {
