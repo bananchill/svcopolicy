@@ -44,11 +44,10 @@ class PostApiImpl {
             query: this.name ,
             body: body,
             headers: {
-            'Content-type': 'application/json; charset=UTF-8',
-        },
+                'Content-type': 'application/json; charset=UTF-8',
+            },
             operationDescription: `create post by id user`,
         })
-
         return res
     }
 

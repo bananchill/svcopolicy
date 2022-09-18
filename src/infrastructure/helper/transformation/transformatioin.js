@@ -26,7 +26,6 @@ export function transformPost(_posts) {
             body: post.body,
             comment: []
         }
-        console.log(lut, post, 4444)
         return lut
     }, {});
 }
@@ -35,7 +34,7 @@ export function transformComment(_posts, _comments) {
     _comments.forEach((_comments) => {
         const postsLutKey = _posts[_comments.postId]
         if (postsLutKey) {
-            delete _comments.albumId;
+            delete _comments.postId;
             postsLutKey.comment.push(_comments)
         }
     });

@@ -11,6 +11,7 @@ class FetchApiError extends Error {
 
 
 export default class Adapter {
+    static instance;
     name = 'adapter'
 
     #pLog = null
@@ -19,6 +20,15 @@ export default class Adapter {
 
     constructor(log) {
         this.#pLog = log
+        Adapter.getInstance()
+        return this
+    }
+
+    static getInstance() {
+        if (!Adapter.instance) {
+            Adapter.instance = this
+        }
+        return Adapter.instance
     }
 
     requestIgnoreResponseDataAsync(_data) {
@@ -46,7 +56,7 @@ export default class Adapter {
 
         let request = {method};
         if (method === 'POST') {
-            request = {method: method, body: JSON.stringify(body),headers}
+            request = {method: method, body: JSON.stringify(body), headers}
         }
         try {
             response = await window.fetch(this.#p_URL + query, request)

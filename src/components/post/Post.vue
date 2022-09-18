@@ -72,6 +72,7 @@ export default {
     },
     async getUserPosts() {
       try {
+        console.log(this, 21234)
         const res = await this.postApi.getInfoAsync(this.$route.params['id'])
         this.userPosts = res
         console.log(res)

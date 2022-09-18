@@ -35,7 +35,6 @@ class PhotoApiImpl {
         album = transformPhoto(photo, _album);
         return album;
     }
-
 }
 
 export default class PhotoApiModule {
@@ -53,6 +52,5 @@ export default class PhotoApiModule {
             api.init();
             return api;
         });
-
     }
 }
